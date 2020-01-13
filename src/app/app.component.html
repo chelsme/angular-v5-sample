@@ -17,3 +17,13 @@
 
   <p [appHighlight]="color">This is the highlightable thing...</p>
 </ul>
+<form>
+  <input
+    type="text"
+    name="test"
+    placeholder="Two way data binding"
+    [(ngModel)]="TwoWayBinding"
+  />
+  <p>{{ TwoWayBinding }}</p>
+  <input type="submit" [value]="value" />
+</form>
