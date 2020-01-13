@@ -22,4 +22,8 @@ export class BodyComponent implements OnInit {
     this.twoWayBinding = "";
     this.goalCount = this.goals.length;
   }
+
+  removeItem(i) {
+    this.goals.splice(i, 1);
+  }
 }

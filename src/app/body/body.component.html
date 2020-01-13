@@ -25,5 +25,7 @@
   />
 </form>
 <div>
-  <p *ngFor="let goal of goals">{{ goal }}</p>
+  <p *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
+    {{ goal }}
+  </p>
 </div>
