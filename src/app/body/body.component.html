@@ -1,0 +1,21 @@
+<h2 [appHighlight]="'orange'">
+  Pick a highlight color:
+</h2>
+<ul>
+  <input type="radio" name="colors" (click)="color = 'green'" />Green
+  <input type="radio" name="colors" (click)="color = 'yellow'" />Yellow
+  <input type="radio" name="colors" (click)="color = 'blue'" />Blue
+
+  <p [appHighlight]="color">This is the highlightable thing...</p>
+</ul>
+<h2>Button press counter: {{ goalCount }}</h2>
+<form>
+  <input
+    type="text"
+    name="test"
+    placeholder="Two way data binding"
+    [(ngModel)]="twoWayBinding"
+  />
+  <p>{{ twoWayBinding }}</p>
+  <input type="submit" [value]="value" (click)="submitForm()" />
+</form>
