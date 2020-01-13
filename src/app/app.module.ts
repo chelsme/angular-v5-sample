@@ -5,13 +5,19 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { HighlightDirective } from "./highlight.directive";
 import { BodyComponent } from "./body/body.component";
-import { AppRoutingModule } from './/app-routing.module';
-import { EasterEggComponent } from './easter-egg/easter-egg.component';
+import { AppRoutingModule } from ".//app-routing.module";
+import { EasterEggComponent } from "./easter-egg/easter-egg.component";
+import { DataService } from "./data.service";
 
 @NgModule({
-  declarations: [AppComponent, HighlightDirective, BodyComponent, EasterEggComponent],
+  declarations: [
+    AppComponent,
+    HighlightDirective,
+    BodyComponent,
+    EasterEggComponent
+  ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

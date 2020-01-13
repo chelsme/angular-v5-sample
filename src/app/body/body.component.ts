@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { DataService } from "../data.service";
 
 @Component({
   selector: "app-body",
@@ -11,19 +12,24 @@ export class BodyComponent implements OnInit {
   goalCount: number;
   goals = [];
 
-  constructor() {}
+  constructor(private data: DataService) {}
 
   ngOnInit() {
+    this.data.goal.subscribe(res => (this.goals = res));
     this.goalCount = this.goals.length;
+    this.data.updateGoals(this.goals);
   }
 
   submitForm() {
     this.goals.push(this.twoWayBinding);
     this.twoWayBinding = "";
     this.goalCount = this.goals.length;
+    this.data.updateGoals(this.goals);
   }
 
   removeItem(i) {
     this.goals.splice(i, 1);
+    this.goalCount = this.goals.length;
+    this.data.updateGoals(this.goals);
   }
 }
