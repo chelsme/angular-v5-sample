@@ -17,5 +17,13 @@
     [(ngModel)]="twoWayBinding"
   />
   <p>{{ twoWayBinding }}</p>
-  <input type="submit" [value]="value" (click)="submitForm()" />
+  <input
+    type="submit"
+    [value]="value"
+    (click)="submitForm()"
+    [disabled]="twoWayBinding === ''"
+  />
 </form>
+<div>
+  <p *ngFor="let goal of goals">{{ goal }}</p>
+</div>
