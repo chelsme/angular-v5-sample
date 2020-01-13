@@ -10,7 +10,7 @@ const routes: Routes = [
     component: BodyComponent
   },
   {
-    path: "easter-egg",
+    path: "ee/:thisIsMyParam",
     component: EasterEggComponent
   }
 ];
