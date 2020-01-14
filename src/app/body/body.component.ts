@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data.service";
+import { ModalService } from "../modal-service.service";
 
 @Component({
   selector: "app-body",
@@ -11,25 +12,34 @@ export class BodyComponent implements OnInit {
   twoWayBinding = "two way binding";
   goalCount: number;
   goals = [];
+  modalOpen: boolean;
 
-  constructor(private data: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private modalService: ModalService
+  ) {}
 
   ngOnInit() {
-    this.data.goal.subscribe(res => (this.goals = res));
+    this.dataService.goal.subscribe(res => (this.goals = res));
     this.goalCount = this.goals.length;
-    this.data.updateGoals(this.goals);
+    this.dataService.updateGoals(this.goals);
+    this.modalService.modalOpen.subscribe(res => (this.modalOpen = res));
   }
 
   submitForm() {
     this.goals.push(this.twoWayBinding);
     this.twoWayBinding = "";
     this.goalCount = this.goals.length;
-    this.data.updateGoals(this.goals);
+    this.dataService.updateGoals(this.goals);
   }
 
   removeItem(i) {
     this.goals.splice(i, 1);
     this.goalCount = this.goals.length;
-    this.data.updateGoals(this.goals);
+    this.dataService.updateGoals(this.goals);
+  }
+
+  toggleModal() {
+    this.modalService.toggleModal();
   }
 }

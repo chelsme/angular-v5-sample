@@ -1,13 +1,8 @@
-<h2 [appHighlight]="'orange'">
-  Pick a highlight color:
+<h2 [appHighlight]="'orange'" (click)="toggleModal()">
+  pick a highlight color
 </h2>
-<ul>
-  <input type="radio" name="colors" (click)="color = 'green'" />Green
-  <input type="radio" name="colors" (click)="color = 'yellow'" />Yellow
-  <input type="radio" name="colors" (click)="color = 'blue'" />Blue
-
-  <p [appHighlight]="color">This is the highlightable thing...</p>
-</ul>
+<app-modal *ngIf="modalOpen"></app-modal>
+<p [appHighlight]="color">This is the highlightable thing...</p>
 <h2>Button press counter: {{ goalCount }}</h2>
 <form>
   <input
