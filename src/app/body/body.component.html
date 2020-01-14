@@ -2,7 +2,7 @@
   pick a highlight color
 </h2>
 <app-modal *ngIf="modalOpen"></app-modal>
-<p [appHighlight]="color">This is the highlightable thing...</p>
+<p [appHighlight]="modalService.color">This is the highlightable thing...</p>
 <h2>Button press counter: {{ goalCount }}</h2>
 <form>
   <input

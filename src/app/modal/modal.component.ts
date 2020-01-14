@@ -16,4 +16,8 @@ export class ModalComponent implements OnInit {
       ? this.modalService.toggleModal()
       : null;
   }
+
+  selectColor(color) {
+    this.modalService.color = color;
+  }
 }
